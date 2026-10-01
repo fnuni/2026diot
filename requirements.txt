@@ -1,0 +1,5 @@
+# The dynamic simulator uses only the Python standard library (Python >= 3.10).
+# Analysis, verification and tests:
+numpy>=1.26
+scipy>=1.11
+pytest>=7

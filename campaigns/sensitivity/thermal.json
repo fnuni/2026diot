@@ -1,0 +1,247 @@
+{
+  "status": "illustrative sensitivity; not device qualification",
+  "rows": [
+    {
+      "carrier": "PQS_SR",
+      "ua_pack_to_wall_ratio": 3.0,
+      "C_c_j_per_k": 1000.0,
+      "calibration_error": "cannot calibrate carrier 'PQS_SR': target 15 h is not bracketed by UA_w in [0.01, 20] W/K (cold lives inf h and inf h); check ua_pack_to_wall_ratio and the cold-life target"
+    },
+    {
+      "carrier": "NQ_BAG",
+      "ua_pack_to_wall_ratio": 3.0,
+      "C_c_j_per_k": 1000.0,
+      "calibration_error": "cannot calibrate carrier 'NQ_BAG': target 3 h is not bracketed by UA_w in [0.01, 20] W/K (cold lives inf h and inf h); check ua_pack_to_wall_ratio and the cold-life target"
+    },
+    {
+      "carrier": "PQS_SR",
+      "ua_pack_to_wall_ratio": 3.0,
+      "C_c_j_per_k": 2000.0,
+      "calibration_error": "cannot calibrate carrier 'PQS_SR': target 15 h is not bracketed by UA_w in [0.01, 20] W/K (cold lives inf h and inf h); check ua_pack_to_wall_ratio and the cold-life target"
+    },
+    {
+      "carrier": "NQ_BAG",
+      "ua_pack_to_wall_ratio": 3.0,
+      "C_c_j_per_k": 2000.0,
+      "calibration_error": "cannot calibrate carrier 'NQ_BAG': target 3 h is not bracketed by UA_w in [0.01, 20] W/K (cold lives inf h and inf h); check ua_pack_to_wall_ratio and the cold-life target"
+    },
+    {
+      "carrier": "PQS_SR",
+      "ua_pack_to_wall_ratio": 3.0,
+      "C_c_j_per_k": 4000.0,
+      "calibration_error": "cannot calibrate carrier 'PQS_SR': target 15 h is not bracketed by UA_w in [0.01, 20] W/K (cold lives inf h and inf h); check ua_pack_to_wall_ratio and the cold-life target"
+    },
+    {
+      "carrier": "NQ_BAG",
+      "ua_pack_to_wall_ratio": 3.0,
+      "C_c_j_per_k": 4000.0,
+      "calibration_error": "cannot calibrate carrier 'NQ_BAG': target 3 h is not bracketed by UA_w in [0.01, 20] W/K (cold lives inf h and inf h); check ua_pack_to_wall_ratio and the cold-life target"
+    },
+    {
+      "carrier": "PQS_SR",
+      "ua_pack_to_wall_ratio": 4.0,
+      "C_c_j_per_k": 1000.0,
+      "ua_w_w_per_k": 0.264762,
+      "ua_p_w_per_k": 1.059048,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 9.491486526403001,
+      "theta_ub_plus_0_5c_sensor_error": 9.991486526403001,
+      "max_minutes_no_openings": 1113.6321690926122,
+      "warm_side_safe": false,
+      "warm_side_safe_with_0_5c_sensor_error": false
+    },
+    {
+      "carrier": "NQ_BAG",
+      "ua_pack_to_wall_ratio": 4.0,
+      "C_c_j_per_k": 1000.0,
+      "ua_w_w_per_k": 0.40062,
+      "ua_p_w_per_k": 1.60248,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 8.9950926848581,
+      "theta_ub_plus_0_5c_sensor_error": 9.4950926848581,
+      "max_minutes_no_openings": 245.32597836128855,
+      "warm_side_safe": false,
+      "warm_side_safe_with_0_5c_sensor_error": false
+    },
+    {
+      "carrier": "PQS_SR",
+      "ua_pack_to_wall_ratio": 4.0,
+      "C_c_j_per_k": 2000.0,
+      "ua_w_w_per_k": 0.252802,
+      "ua_p_w_per_k": 1.011208,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 8.454289463247726,
+      "theta_ub_plus_0_5c_sensor_error": 8.954289463247726,
+      "max_minutes_no_openings": 1166.3178311615345,
+      "warm_side_safe": false,
+      "warm_side_safe_with_0_5c_sensor_error": false
+    },
+    {
+      "carrier": "NQ_BAG",
+      "ua_pack_to_wall_ratio": 4.0,
+      "C_c_j_per_k": 2000.0,
+      "ua_w_w_per_k": 0.335903,
+      "ua_p_w_per_k": 1.343612,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 7.966476588855905,
+      "theta_ub_plus_0_5c_sensor_error": 8.466476588855905,
+      "max_minutes_no_openings": 292.5918894773176,
+      "warm_side_safe": true,
+      "warm_side_safe_with_0_5c_sensor_error": false
+    },
+    {
+      "carrier": "PQS_SR",
+      "ua_pack_to_wall_ratio": 4.0,
+      "C_c_j_per_k": 4000.0,
+      "ua_w_w_per_k": 0.227571,
+      "ua_p_w_per_k": 0.910284,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 8.200117810931225,
+      "theta_ub_plus_0_5c_sensor_error": 8.700117810931225,
+      "max_minutes_no_openings": 1295.62853067086,
+      "warm_side_safe": false,
+      "warm_side_safe_with_0_5c_sensor_error": false
+    },
+    {
+      "carrier": "NQ_BAG",
+      "ua_pack_to_wall_ratio": 4.0,
+      "C_c_j_per_k": 4000.0,
+      "calibration_error": "cannot calibrate carrier 'NQ_BAG': target 3 h is not bracketed by UA_w in [0.01, 20] W/K (cold lives inf h and inf h); check ua_pack_to_wall_ratio and the cold-life target"
+    },
+    {
+      "carrier": "PQS_SR",
+      "ua_pack_to_wall_ratio": 5.0,
+      "C_c_j_per_k": 1000.0,
+      "ua_w_w_per_k": 0.259058,
+      "ua_p_w_per_k": 1.29529,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 8.354300177768847,
+      "theta_ub_plus_0_5c_sensor_error": 8.854300177768847,
+      "max_minutes_no_openings": 1092.6262888587357,
+      "warm_side_safe": false,
+      "warm_side_safe_with_0_5c_sensor_error": false
+    },
+    {
+      "carrier": "NQ_BAG",
+      "ua_pack_to_wall_ratio": 5.0,
+      "C_c_j_per_k": 1000.0,
+      "ua_w_w_per_k": 0.391357,
+      "ua_p_w_per_k": 1.956785,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 7.977973428379567,
+      "theta_ub_plus_0_5c_sensor_error": 8.477973428379567,
+      "max_minutes_no_openings": 241.08727763411778,
+      "warm_side_safe": true,
+      "warm_side_safe_with_0_5c_sensor_error": false
+    },
+    {
+      "carrier": "PQS_SR",
+      "ua_pack_to_wall_ratio": 5.0,
+      "C_c_j_per_k": 2000.0,
+      "ua_w_w_per_k": 0.247151,
+      "ua_p_w_per_k": 1.2357550000000002,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 7.256004555009719,
+      "theta_ub_plus_0_5c_sensor_error": 7.756004555009719,
+      "max_minutes_no_openings": 1145.265773309298,
+      "warm_side_safe": true,
+      "warm_side_safe_with_0_5c_sensor_error": true
+    },
+    {
+      "carrier": "NQ_BAG",
+      "ua_pack_to_wall_ratio": 5.0,
+      "C_c_j_per_k": 2000.0,
+      "ua_w_w_per_k": 0.327261,
+      "ua_p_w_per_k": 1.6363050000000001,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 6.854411689884492,
+      "theta_ub_plus_0_5c_sensor_error": 7.354411689884492,
+      "max_minutes_no_openings": 288.30564507550685,
+      "warm_side_safe": true,
+      "warm_side_safe_with_0_5c_sensor_error": true
+    },
+    {
+      "carrier": "PQS_SR",
+      "ua_pack_to_wall_ratio": 5.0,
+      "C_c_j_per_k": 4000.0,
+      "ua_w_w_per_k": 0.222179,
+      "ua_p_w_per_k": 1.110895,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 6.956572675830465,
+      "theta_ub_plus_0_5c_sensor_error": 7.456572675830465,
+      "max_minutes_no_openings": 1273.988905968459,
+      "warm_side_safe": true,
+      "warm_side_safe_with_0_5c_sensor_error": true
+    },
+    {
+      "carrier": "NQ_BAG",
+      "ua_pack_to_wall_ratio": 5.0,
+      "C_c_j_per_k": 4000.0,
+      "calibration_error": "cannot calibrate carrier 'NQ_BAG': target 3 h is not bracketed by UA_w in [0.01, 20] W/K (cold lives 51.5667 h and inf h); check ua_pack_to_wall_ratio and the cold-life target"
+    },
+    {
+      "carrier": "PQS_SR",
+      "ua_pack_to_wall_ratio": 8.0,
+      "C_c_j_per_k": 1000.0,
+      "calibration_error": "cannot calibrate carrier 'PQS_SR': target 15 h is not bracketed by UA_w in [0.01, 20] W/K (cold lives inf h and inf h); check ua_pack_to_wall_ratio and the cold-life target"
+    },
+    {
+      "carrier": "NQ_BAG",
+      "ua_pack_to_wall_ratio": 8.0,
+      "C_c_j_per_k": 1000.0,
+      "calibration_error": "cannot calibrate carrier 'NQ_BAG': target 3 h is not bracketed by UA_w in [0.01, 20] W/K (cold lives inf h and inf h); check ua_pack_to_wall_ratio and the cold-life target"
+    },
+    {
+      "carrier": "PQS_SR",
+      "ua_pack_to_wall_ratio": 8.0,
+      "C_c_j_per_k": 2000.0,
+      "ua_w_w_per_k": 0.237286,
+      "ua_p_w_per_k": 1.898288,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 6.733460259190947,
+      "theta_ub_plus_0_5c_sensor_error": 7.233460259190947,
+      "max_minutes_no_openings": 749.6915298324642,
+      "warm_side_safe": true,
+      "warm_side_safe_with_0_5c_sensor_error": true
+    },
+    {
+      "carrier": "NQ_BAG",
+      "ua_pack_to_wall_ratio": 8.0,
+      "C_c_j_per_k": 2000.0,
+      "ua_w_w_per_k": 0.309052,
+      "ua_p_w_per_k": 2.472416,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 6.492103428570449,
+      "theta_ub_plus_0_5c_sensor_error": 6.992103428570449,
+      "max_minutes_no_openings": 191.86771627193926,
+      "warm_side_safe": true,
+      "warm_side_safe_with_0_5c_sensor_error": true
+    },
+    {
+      "carrier": "PQS_SR",
+      "ua_pack_to_wall_ratio": 8.0,
+      "C_c_j_per_k": 4000.0,
+      "ua_w_w_per_k": 0.211652,
+      "ua_p_w_per_k": 1.693216,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 6.343939940435454,
+      "theta_ub_plus_0_5c_sensor_error": 6.843939940435454,
+      "max_minutes_no_openings": 840.4895977728821,
+      "warm_side_safe": true,
+      "warm_side_safe_with_0_5c_sensor_error": true
+    },
+    {
+      "carrier": "NQ_BAG",
+      "ua_pack_to_wall_ratio": 8.0,
+      "C_c_j_per_k": 4000.0,
+      "ua_w_w_per_k": 0.172036,
+      "ua_p_w_per_k": 1.376288,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 6.6584149501752545,
+      "theta_ub_plus_0_5c_sensor_error": 7.1584149501752545,
+      "max_minutes_no_openings": 344.6784478206618,
+      "warm_side_safe": true,
+      "warm_side_safe_with_0_5c_sensor_error": true
+    }
+  ]
+}

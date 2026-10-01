@@ -1,0 +1,47 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vs/
+.env
+*.swp
+*~
+*.log
+reproduced/
+reproduced_*/
+campaigns/original/results/events_*.tar
+campaigns/original/results/morning_plans.tar
+campaigns/validation/results/events/
+campaigns/validation/results/scenarios/
+campaigns/validation/results/checkpoints/
+raw_*.tar
+
+# --- Sistema operativo / IDE (GitMirror) ---
+**/.git.bak/
+Icon
+
+# --- Python (GitMirror) ---
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/
+
+# --- LaTeX (GitMirror) ---
+*.aux
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.bbl
+*.blg
+*.lof
+*.lot
+*.nav
+*.snm

@@ -1,0 +1,9 @@
+{
+ "platform": "Linux-6.8.0-138-generic-aarch64-with-glibc2.35",
+ "python": "3.10.12",
+ "checked": 299,
+ "equal": 299,
+ "different": [],
+ "seconds": 135.7,
+ "sample": "every 32nd run of S1, S2, S3 and S5 (same sample as repeat_check_host.json)"
+}

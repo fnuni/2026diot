@@ -1,0 +1,9 @@
+{
+ "trials": 1998,
+ "theta_violations": 0,
+ "energy_violations": 0,
+ "low_violations": 0,
+ "max_theta_margin": -0.8070746192592235,
+ "max_energy_ratio": 0.901693590615643,
+ "min_low_margin": 0.032658441231863566
+}
