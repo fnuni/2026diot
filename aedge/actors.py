@@ -457,6 +457,56 @@ class HybridCenter(GlobalCenter, MarketCoordination):
 
 
 # ============================================================================ vehicles
+class GreedyFallbackCenter(GlobalCenter):
+    """Cloud ALNS in normal operation; fog insertion only while cloud is down.
+
+    The registry and current plans persist across transitions. No existing
+    assignment is revoked merely because the mode changes. On recovery the
+    event-driven global optimiser repairs the full reachable state.
+    """
+
+    kind = "greedy_fallback"
+
+    def __init__(self, *a, **kw):
+        super().__init__(*a, **kw)
+        self.queue = {}
+        self.retry = self.cfg["control"]["reauction_interval_min"]
+        self.cloud_was_up = True
+
+    def cloud_up(self):
+        return self.infra.get("cloud_up", True)
+
+    def on_new_request(self, t, r):
+        if t > 0:
+            if self.cloud_up():
+                super().on_new_request(t, r)
+            else:
+                self.queue[r] = t
+
+    def on_released(self, t, r, target, k):
+        if self.cloud_up():
+            super().on_released(t, r, target, k)
+        elif self.alive(r, t):
+            self.queue[r] = t
+
+    def decide(self, t):
+        up = self.cloud_up()
+        if not up:
+            if self.cloud_was_up:
+                self.logs.append(dict(ev="degrade_to_greedy", t=t))
+                self.queue.update({r: t for r, h in self.reg.holder.items()
+                                   if h == HELD_BY_CENTER and self.alive(r, t)})
+            self.cloud_was_up = False
+            StaticCenter.decide(self, t)
+            return
+        if not self.cloud_was_up:
+            self.logs.append(dict(ev="restore_global", t=t))
+            self.queue.clear()
+            self.triggers.add(("cloud_restored", -1))
+            self.cloud_was_up = True
+        super().decide(t)
+
+
 class VehicleBase(Actor):
     kind = "base"
 

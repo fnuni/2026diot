@@ -1,4 +1,4 @@
-"""Orthogonal placement/autonomy experiment, fresh seeds, and prespecified sensitivities."""
+"""Completed-service placement/fallback experiment, policy and sensitivity comparisons."""
 from __future__ import annotations
 import argparse
 import csv
@@ -21,8 +21,8 @@ ROOT = Path(__file__).resolve().parents[1]
 METHODS["CENTRAL_FOG_FB"] = (GlobalCenter, FallbackExecutor, {"trigger": "event"}, "fog")
 FACTORIAL = ["CENTRAL", "CENTRAL_FB", "CENTRAL_FOG", "CENTRAL_FOG_FB", "HYBRID"]
 PLACEMENT = ["CENTRAL", "CENTRAL_FOG", "HYBRID"]
-C1_METHODS = FACTORIAL + ["GREEDY_FOG"]
-C2_METHODS = PLACEMENT + ["GREEDY_FOG"]
+C1_METHODS = FACTORIAL + ["GREEDY_FOG", "STATIC", "GREEDY_FB"]
+C2_METHODS = PLACEMENT + ["GREEDY_FOG", "GREEDY_FB"]
 
 def jobs():
     out = []
@@ -70,7 +70,7 @@ def served_metrics(sc, log):
 
 def write_csv(path, rows):
     with path.open("w", newline="") as f:
-        w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
+        w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n");w.writeheader();w.writerows(rows)
 
 def run_scenario(args):
     j, out_path = args

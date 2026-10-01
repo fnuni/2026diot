@@ -1,11 +1,18 @@
-# Study protocol - screening phase S1-S5
+# Screening experiment
 
-This phase maps mechanisms and operating regimes using seeds 8001-8040. The document records the analysis implemented by `aedge.analysis`; it is not an external preregistration or trusted timestamp.
+The campaign uses seeds 8001–8040, with development seeds 7001–7020 excluded from inference. All controllers share scenario streams, morning plans, information rules, ownership tokens and execution guards.
 
-- **S1:** traffic (off/on) x thermal bundle (benign/stress) x N0-N4 x eight controllers; 6,400 runs. Primary endpoint: priority-weighted on-time handling (PWH).
-- **S2:** load/fleet cells x N1/N3/N4 x eight controllers; 1,920 runs. N4 is included in every load/fleet cell.
-- **S3:** link availability x outage-duration sweep; 1,500 runs.
-- **S4:** separate-process trajectory check; 12 runs.
-- **S5:** conductance-assumption stress; 360 runs.
+| Stage | Design | Evaluations |
+|---|---|---:|
+| S1 | 40 seeds × four traffic–thermal cells × N0–N4 × eight controllers | 6,400 |
+| S2 | 20 seeds × four load/fleet cells × N1/N3/N4 × eight controllers | 1,920 |
+| S3 | 20 seeds × five availability levels × five outage means × three controllers | 1,500 |
+| S4 | Six seeds × two controllers, multiprocess replay | 12 |
+| S5 | 20 seeds × three true-conductance factors × N1/N3 × three controllers | 360 |
+| Total | | 10,192 |
 
-All controllers share requests, random streams, complete morning plans, ownership tokens, execution guards and the thermal observer. The main contrasts are Hybrid-Central under N4 and N3, Central-Periodic under N1, and Hybrid-Edge-market under N1. S2-S5 are sensitivity and mechanism analyses. No operational or clinical data enter the generator.
+PWH counts priority-weighted on-time visit starts, including absent-patient attempts. It is dispatch handling, not completed treatment. Seed-level paired contrasts are averaged over environmental cells before inference.
+
+H1–H4 are the primary superiority family; E1/E2 are the screening equivalence comparisons. Scale, connectivity, thermal misspecification and served-only sensitivities are exploratory. Full definitions and multiplicity rules are in ../ANALYSIS_PLAN.md.
+
+This is a description of the reported design, not an externally registered protocol. No outcome-based exclusions or optional stopping are used. SHA-256 checks identify the distributed evidence and are not trusted timestamps.

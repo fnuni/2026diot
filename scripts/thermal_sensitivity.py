@@ -51,7 +51,13 @@ def analyse() -> dict:
                 except ValueError as exc:
                     row["calibration_error"] = str(exc)
                 rows.append(row)
-    return {"status": "illustrative sensitivity; not device qualification", "rows": rows}
+    references = []
+    for carrier in ("PQS_SR", "NQ_BAG"):
+        references.append({"carrier": carrier,
+                           "C_c_j_per_k": base["carrier"]["classes"][carrier]["C_c"],
+                           "ua_pack_to_wall_ratio": base["carrier"]["ua_pack_to_wall_ratio"],
+                           **one(base, carrier)})
+    return {"status": "illustrative sensitivity; not device qualification", "reference_rows": references, "rows": rows}
 
 
 def main() -> None:

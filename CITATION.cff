@@ -19,8 +19,9 @@ abstract: >-
   agents, a fog coordinator and a cloud optimiser, an ownership-token protocol
   for at-most-once service under partitions and a two-node vaccine-carrier model
   with a conditional linear thermal bound. Includes a two-phase synthetic study
-  (10,192 screening runs and 2,080 confirmatory runs), a simple fog-side greedy
-  baseline, protocols, run tables, analyses, representative raw logs and tests.
+  (10,192 screening runs and 2,660 completed-service C1-C3 runs),
+  an outage-only greedy fallback, primary and exploratory analyses, run tables,
+  analyses, raw replay logs for reported seed 9001 and tests.
   Synthetic data are licensed CC BY 4.0.
 keywords:
   - classical deliberative agents

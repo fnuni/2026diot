@@ -12,7 +12,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-METHODS = ("CENTRAL", "CENTRAL_FB", "CENTRAL_FOG", "CENTRAL_FOG_FB", "HYBRID", "GREEDY_FOG")
+METHODS = ("CENTRAL", "CENTRAL_FB", "CENTRAL_FOG", "CENTRAL_FOG_FB", "HYBRID", "GREEDY_FOG", "STATIC", "GREEDY_FB")
 
 
 class Number:
@@ -84,6 +84,10 @@ class MacroWriter:
         for key, s in self.a["budget_sensitivity"].items():
             it, net, m = key.split("|")
             self.summary(f"bud-{it}-{net}-{m}", s)
+        for key, s in self.a["exploratory_fallback_contrasts"].items():
+            self.summary("fallback-" + key.replace("|", "-"), s)
+        for net, s in self.a["exploratory_weak_policy_placement"].items():
+            self.summary(f"weak-placement-{net}", s)
         self.lines.append("% END GENERATED MACROS (confirmatory phase)")
         return "\n".join(self.lines) + "\n"
 

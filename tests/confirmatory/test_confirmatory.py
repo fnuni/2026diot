@@ -6,7 +6,7 @@ from confirmatory.analyse import tost, summary
 class ConfirmatoryPhaseTests(unittest.TestCase):
     def test_design(self):
         js=jobs();ids=[job_id(j)+"_"+m for j in js for m in j["methods"]]
-        self.assertEqual(len(ids),2080);self.assertEqual(len(set(ids)),2080)
+        self.assertEqual(len(ids),2660);self.assertEqual(len(set(ids)),2660)
         self.assertEqual({j['seed'] for j in js},set(range(9001,9041)))
     def test_one_factor_at_a_time(self):
         a,b=METHODS['CENTRAL_FB'],METHODS['CENTRAL_FOG_FB']

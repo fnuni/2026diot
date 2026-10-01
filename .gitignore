@@ -15,11 +15,11 @@ desktop.ini
 *.log
 reproduced/
 reproduced_*/
-campaigns/original/results/events_*.tar
-campaigns/original/results/morning_plans.tar
-campaigns/validation/results/events/
-campaigns/validation/results/scenarios/
-campaigns/validation/results/checkpoints/
+campaigns/screening/results/events_*.tar
+campaigns/screening/results/morning_plans.tar
+campaigns/confirmatory/results/events/
+campaigns/confirmatory/results/scenarios/
+campaigns/confirmatory/results/checkpoints/
 raw_*.tar
 
 # --- Sistema operativo / IDE (GitMirror) ---

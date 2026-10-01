@@ -104,7 +104,7 @@ def build(res: dict, ver: dict, counts: dict, extra: dict | None = None) -> str:
     out = []
     for k, v in sorted(V.items()):
         out.append("\\expandafter\\def\\csname v@%s\\endcsname{%s}" % (k, v))
-    # main PWC table
+    # main PWH table
     rows = []
     for m in ORDER:
         cells = []
@@ -113,7 +113,7 @@ def build(res: dict, ver: dict, counts: dict, extra: dict | None = None) -> str:
             cells.append(f"{t['priority_handled_pct'][0]:.2f} $\\pm$ {t['priority_handled_pct'][1]:.2f}" if t else "--")
         rows.append(SC(m) + " & " + " & ".join(cells) + " \\\\")
     out.append("\\newcommand{\\TabMain}{\\begin{table}[htbp]\\centering\\small\\setlength{\\tabcolsep}{3pt}"
-               "\\caption{S1: priority-weighted on-time completion (PWC, \\%), mean $\\pm$ SD over 160 runs per cell "
+               "\\caption{S1: priority-weighted on-time request handling (PWH, \\%), mean $\\pm$ SD over 160 runs per cell "
                "(40 seeds $\\times$ 4 environment cells), $K=8$, $\\rho=0.9$.}\\label{tab:main}"
                "\\begin{tabular}{lccccc}\\toprule Controller & N0 & N1 & N2 & N3 & N4 \\\\\\midrule "
                + " ".join(rows) + " \\bottomrule\\end{tabular}\\end{table}}")
@@ -130,7 +130,7 @@ def build(res: dict, ver: dict, counts: dict, extra: dict | None = None) -> str:
               f"{t1_['center_p95_ms'][0]:.0f}", f"{t1_['agent_p95_ms'][0]:.1f}"]
         rows.append(SC(m) + " & " + " & ".join(r) + " \\\\")
     out.append("\\newcommand{\\TabSecondary}{\\begin{table}[htbp]\\centering\\small\\setlength{\\tabcolsep}{2.5pt}"
-               "\\caption{S1 secondary outcomes (means). Urgent completion under N1, N3 and N4; the remaining "
+               "\\caption{S1 secondary outcomes (means). Urgent handling under N1, N3 and N4; the remaining "
                "columns refer to N1: travel and total overtime (min per shift, fleet), carrier exchanges per shift, "
                "messages and kB per vehicle-hour, 95th-percentile decision time of the coordinator and of the "
                "agents (ms, measured on the reference host).}\\label{tab:secondary}"
@@ -149,7 +149,7 @@ def build(res: dict, ver: dict, counts: dict, extra: dict | None = None) -> str:
                     f"[{f(q['ci90_lo'])}, {f(q['ci90_hi'])}]$^{{\\dagger}}$ & \\multicolumn{{2}}{{c}}"
                     f"{{equivalent within $\\pm${q['margin']:.1f}: {'yes' if q['equivalent'] else 'no'}}} \\\\")
     out.append("\\newcommand{\\TabConfirm}{\\begin{table}[htbp]\\centering\\small\\setlength{\\tabcolsep}{3pt}"
-               "\\caption{Prespecified comparisons on PWC (percentage points; 40 paired seeds, each the mean over "
+               "\\caption{Prespecified comparisons on PWH (percentage points; 40 paired seeds, each the mean over "
                "the four environment cells). Superiority: 95\\% paired bootstrap interval, two-sided sign-flip "
                "p-value and Holm-adjusted p-value. $^{\\dagger}$90\\% interval for the equivalence statements."
                "}\\label{tab:confirm}\\begin{tabular}{llllll}\\toprule Id & Net & Comparison & Difference [interval] & "
@@ -164,7 +164,7 @@ def build(res: dict, ver: dict, counts: dict, extra: dict | None = None) -> str:
             cells.append(f"{f(r[name])} [{f(r[name + '_ci'][0])}, {f(r[name + '_ci'][1])}]")
         rows.append(SC(r["method"]) + " & " + " & ".join(cells) + " \\\\")
     out.append("\\newcommand{\\TabFactorial}{\\begin{table}[htbp]\\centering\\small\\setlength{\\tabcolsep}{3pt}"
-               "\\caption{S1 environmental effects on PWC (percentage points, pooled over N0--N4; 95\\% bootstrap "
+               "\\caption{S1 environmental effects on PWH (percentage points, pooled over N0--N4; 95\\% bootstrap "
                "intervals over seeds). Main effect = mean(on) $-$ mean(off); interaction = difference of "
                "differences.}\\label{tab:factorial}\\begin{tabular}{llll}\\toprule Controller & Traffic incident & "
                "Thermal stress & Interaction \\\\\\midrule " + " ".join(rows) + " \\bottomrule\\end{tabular}\\end{table}}")
@@ -186,7 +186,7 @@ def build(res: dict, ver: dict, counts: dict, extra: dict | None = None) -> str:
             lat.append(f"{v['center_p95'][0]:.0f}/{v['center_max'][0]:.0f}" if v else "--")
         nreq = [f"{t2_[f'{teams}|{load}|N1|CENTRAL']['N'][0]:.0f}" for teams, load in cfgs]
         out.append("\\newcommand{\\TabLoadSize}{\\begin{table}[htbp]\\centering\\small\\setlength{\\tabcolsep}{2.5pt}"
-                   "\\caption{S2: PWC (\\%) when load $\\rho$ and fleet size $K$ vary separately (20 seeds, traffic "
+                   "\\caption{S2: PWH (\\%) when load $\\rho$ and fleet size $K$ vary separately (20 seeds, traffic "
                    "and thermal stress on). Area per team is constant. Last rows: requests per shift and "
                    "\\textsc{Central} coordinator decision time, p95/max (ms).}\\label{tab:loadsize}"
                    "\\begin{tabular}{lrrrrrrrr}\\toprule & \\multicolumn{4}{c}{N1} & \\multicolumn{4}{c}{N3}\\\\"
@@ -220,10 +220,10 @@ def build(res: dict, ver: dict, counts: dict, extra: dict | None = None) -> str:
         plots.append(f"\\addplot+[gray,dashed,mark=o] coordinates {{{coords}}}; "
                      "\\addlegendentry{\\textsc{Edge-market}, $\\mu=15$}")
         out.append("\\newcommand{\\FigMap}{\\begin{figure}[htbp]\\centering\\begin{tikzpicture}\\begin{axis}["
-                   "width=0.82\\textwidth,height=6.2cm,xlabel={Link availability $\\alpha$},ylabel={PWC difference "
+                   "width=0.82\\textwidth,height=6.2cm,xlabel={Link availability $\\alpha$},ylabel={PWH difference "
                    "vs \\textsc{Central} (pp)},x dir=reverse,xtick={0.55,0.65,0.75,0.85,0.95},grid=major,"
                    "legend columns=4,legend style={font=\\scriptsize,at={(0.5,-0.22)},anchor=north}]" + " ".join(plots) +
-                   "\\end{axis}\\end{tikzpicture}\\caption{S3 decision map. Paired difference in PWC between "
+                   "\\end{axis}\\end{tikzpicture}\\caption{S3 decision map. Paired difference in PWH between "
                    "\\textsc{Hybrid} and \\textsc{Central} (mean and 95\\% bootstrap interval, 20 seeds) as link "
                    "availability decreases, for three mean outage durations $\\mu$; the dashed line shows "
                    "\\textsc{Edge-market} for $\\mu=15$ min.}\\label{fig:map}\\end{figure}}")
@@ -238,12 +238,12 @@ def build(res: dict, ver: dict, counts: dict, extra: dict | None = None) -> str:
             vals = [r["central"] for r in res["S3_map"] if r["availability"] == a and r["method"] == "HYBRID"]
             cen.append(f"{sum(vals) / len(vals):.1f}")
         out.append("\\newcommand{\\TabMap}{\\begin{table}[htbp]\\centering\\small\\setlength{\\tabcolsep}{3pt}"
-                   "\\caption{S3: mean paired PWC difference with respect to \\textsc{Central} (pp; 20 seeds per "
+                   "\\caption{S3: mean paired PWH difference with respect to \\textsc{Central} (pp; 20 seeds per "
                    "cell). \\textsc{Central+FB} coincides with \\textsc{Hybrid} in every cell and is omitted. "
-                   "The last row gives the \\textsc{Central} PWC averaged over outage durations.}"
+                   "The last row gives the \\textsc{Central} PWH averaged over outage durations.}"
                    "\\label{tab:map}\\begin{tabular}{llrrrrr}\\toprule Controller & $\\mu$ (min) & $\\alpha$=0.95 & "
                    "0.85 & 0.75 & 0.65 & 0.55 \\\\\\midrule " + " ".join(rows) +
-                   " \\midrule \\textsc{Central} PWC & & " + " & ".join(cen) + " \\\\ \\bottomrule\\end{tabular}\\end{table}}")
+                   " \\midrule \\textsc{Central} PWH & & " + " & ".join(cen) + " \\\\ \\bottomrule\\end{tabular}\\end{table}}")
         def rng(m):
             xs = [r["mean"] for r in res["S3_map"] if r["method"] == m]
             return f(min(xs)), f(max(xs))
@@ -277,13 +277,13 @@ def build(res: dict, ver: dict, counts: dict, extra: dict | None = None) -> str:
                     out.append("\\expandafter\\def\\csname v@e5p-%s-%s-%s\\endcsname{%.1f}" % (m, mis, net, v["pwc"][0]))
         out.append("\\newcommand{\\TabMisspec}{\\begin{table}[htbp]\\centering\\small\\setlength{\\tabcolsep}{2.5pt}"
                    "\\caption{S5: violation of assumption (A1). All carriers have true conductance factor $f$ while "
-                   "planning assumes $f\\le1.15$ (thermal stress, no traffic, 20 seeds). PWC (\\%), carrier "
+                   "planning assumes $f\\le1.15$ (thermal stress, no traffic, 20 seeds). PWH (\\%), carrier "
                    "quarantines and wasted doses per shift.}\\label{tab:misspec}\\begin{tabular}{llrrrrrrrrr}\\toprule "
                    "& & \\multicolumn{3}{c}{\\textsc{Central}} & \\multicolumn{3}{c}{\\textsc{Central+FB}} & "
                    "\\multicolumn{3}{c}{\\textsc{Hybrid}}\\\\\\cmidrule(lr){3-5}\\cmidrule(lr){6-8}\\cmidrule(lr){9-11}"
-                   " $f$ & Net & PWC & Quar. & Wasted & PWC & Quar. & Wasted & PWC & Quar. & Wasted \\\\\\midrule "
+                   " $f$ & Net & PWH & Quar. & Wasted & PWH & Quar. & Wasted & PWH & Quar. & Wasted \\\\\\midrule "
                    + " ".join(rows) + " \\bottomrule\\end{tabular}\\end{table}}")
-    # PWC-by-network figure
+    # PWH-by-network figure
     plots = []
     styles = {"CENTRAL": "black,mark=*", "CENTRAL_FOG": "gray,mark=o", "CENTRAL_FB": "blue!60!black,mark=square",
               "HYBRID": "red!70!black,mark=triangle*,thick", "EDGE_MARKET": "orange!80!black,mark=diamond*",
@@ -291,10 +291,10 @@ def build(res: dict, ver: dict, counts: dict, extra: dict | None = None) -> str:
     for m, st in styles.items():
         coords = " ".join(f"({n},{tab[f'{n}|{m}']['priority_handled_pct'][0]:.3f})" for n in NETS)
         plots.append(f"\\addplot[{st}] coordinates {{{coords}}}; \\addlegendentry{{{LABEL[m]}}}")
-    out.append("\\newcommand{\\FigPWC}{\\begin{figure}[htbp]\\centering\\begin{tikzpicture}\\begin{axis}["
+    out.append("\\newcommand{\\FigPWH}{\\begin{figure}[htbp]\\centering\\begin{tikzpicture}\\begin{axis}["
                "width=0.82\\textwidth,height=6.2cm,symbolic x coords={N0,N1,N2,N3,N4},xtick=data,"
-               "ylabel={PWC (\\%)},grid=major,legend columns=4,legend style={font=\\scriptsize,at={(0.5,-0.18)},"
-               "anchor=north}]" + " ".join(plots) + "\\end{axis}\\end{tikzpicture}\\caption{S1: mean PWC by "
+               "ylabel={PWH (\\%)},grid=major,legend columns=4,legend style={font=\\scriptsize,at={(0.5,-0.18)},"
+               "anchor=north}]" + " ".join(plots) + "\\end{axis}\\end{tikzpicture}\\caption{S1: mean PWH by "
                "network profile (160 runs per point). N4 is a 120-min cloud outage on top of N1.}\\label{fig:pwc}"
                "\\end{figure}}")
     return "\n".join(out)

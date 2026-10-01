@@ -10,7 +10,7 @@ import multiprocessing as mp
 import resource
 import time
 
-from .actors import (AgenticVehicle, EagerAgenticVehicle, FallbackExecutor, GlobalCenter, HybridCenter, MarketCenter, StaticCenter,
+from .actors import (AgenticVehicle, EagerAgenticVehicle, FallbackExecutor, GlobalCenter, GreedyFallbackCenter, HybridCenter, MarketCenter, StaticCenter,
                      ThinExecutor)
 from .common import sha, SWAP
 from .network import CENTER, Network, vehicle_id
@@ -27,6 +27,7 @@ from .common import keyed_rng
 METHODS = {
     "STATIC": (StaticCenter, ThinExecutor, {}, "cloud"),
     "GREEDY_FOG": (StaticCenter, ThinExecutor, {}, "fog"),
+    "GREEDY_FB": (GreedyFallbackCenter, AgenticVehicle, {"trigger": "event"}, "fog"),
     "PERIODIC": (GlobalCenter, ThinExecutor, {"trigger": "periodic"}, "cloud"),
     "CENTRAL": (GlobalCenter, ThinExecutor, {"trigger": "event"}, "cloud"),
     "CENTRAL_FB": (GlobalCenter, FallbackExecutor, {"trigger": "event"}, "cloud"),

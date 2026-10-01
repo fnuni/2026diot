@@ -1,4 +1,4 @@
-"""Recompute both prespecified analyses from the archived run tables and compare them
+"""Recompute primary and exploratory analyses from the archived run tables and compare them
 with the archived JSON outputs, without modifying any file of the repository.
 
 Usage (from the repository root):

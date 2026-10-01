@@ -1,9 +1,18 @@
-# Study protocol - confirmatory phase C1-C3
+# Completed-service experiment
 
-This phase uses seeds 9001-9040 and a completed-service endpoint (PWS) to test placement and vehicle fallback separately. The plan was recorded locally before these designated seeds were analysed, but it was not externally registered; the release manifest verifies package contents only.
+The campaign uses seeds 9001–9040, distinct from screening. The primary endpoint PWS counts priority-weighted present-patient services started on time and matched to a completion event. Absent, missed and unfinished requests remain in the denominator.
 
-- **C1:** thermal bundle x N1/N3/N4 x the 2x2 placement-by-fallback controllers, Hybrid and `GREEDY_FOG`; 1,440 runs.
-- **C2:** five outage windows x Central, Central@fog, Hybrid and `GREEDY_FOG`; 400 runs on the first 20 seeds in thermal stress.
-- **C3:** event-ALNS budgets 5 and 100 x N1/N4 x Central, Central@fog and Hybrid; 240 runs on the first 20 seeds.
+| Stage | Design | Evaluations |
+|---|---|---:|
+| C1 | 40 seeds × benign/stress bundles × N1/N3/N4 × eight controllers | 1,920 |
+| C2 | 20 stress seeds × five outage onset/duration windows × five controllers | 500 |
+| C3 | 20 stress seeds × N1/N4 × 5/100 event-ALNS iterations × three controllers | 240 |
+| Total | | 2,660 |
 
-The superiority family is F1 placement under N4, F2 fallback under N3 and F3 interaction under N4, using seed-level paired sign-flip tests with Holm adjustment. Q5 compares Hybrid with Central@fog using a +/-1.5 pp TOST; it is reported overall and by thermal bundle. The sample size is a computational design, not a formal power calculation. `GREEDY_FOG`, C2 and C3 are mechanism/sensitivity analyses and are not added to the confirmatory multiplicity family.
+C1 controllers: CENTRAL, CENTRAL_FB, CENTRAL_FOG, CENTRAL_FOG_FB, HYBRID, GREEDY_FOG, STATIC, GREEDY_FB. C2 omits vehicle-factorial and Static controllers; C3 uses Central, Central@fog and Hybrid.
+
+The first four C1 controllers form the placement × fallback factorial. F1–F3 are the primary superiority family and pooled E3 (machine key Q5) is the primary TOST comparison. Additional policy comparisons, thermal-bundle equivalence, C2/C3 and replay diagnostics are exploratory, reuse these seeds and are not independent replications.
+
+GREEDY_FB uses global cloud ALNS while reachable, greedy insertion at the fog only during outages and global repair on recovery. GREEDY_FOG instead uses insertion throughout the day; Greedy@fog–Static isolates its placement effect.
+
+See ../ANALYSIS_PLAN.md for estimands and multiplicity. This document describes the reported experiment and does not claim external preregistration.

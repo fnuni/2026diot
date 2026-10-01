@@ -9,10 +9,28 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def digest(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    data = path.read_bytes()
+    # Git text normalisation must not invalidate scientific tables. CSV hashes
+    # deliberately identify LF-normalised content; other files are byte-exact.
+    if path.suffix == ".csv":
+        data = data.replace(b"\r\n", b"\n")
+    return hashlib.sha256(data).hexdigest()
+
+
+def write_manifest(root: Path = ROOT) -> None:
+    excluded = {".git", "__pycache__", ".pytest_cache", ".venv",
+                "events", "scenarios", "checkpoints"}
+    files = sorted(p for p in root.rglob("*") if p.is_file()
+                   and not excluded.intersection(p.relative_to(root).parts)
+                   and p.name not in {".gitignore", "RELEASE_MANIFEST.sha256"}
+                   and p.suffix != ".pyc")
+    (root / "RELEASE_MANIFEST.sha256").write_text(
+        "".join(f"{digest(p)}  {p.relative_to(root).as_posix()}\n" for p in files))
 
 
 def main() -> int:
+    if "--write" in sys.argv:
+        write_manifest()
     manifest = ROOT / "RELEASE_MANIFEST.sha256"
     if not manifest.exists():
         print("RELEASE_MANIFEST.sha256 is missing")

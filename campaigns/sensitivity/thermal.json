@@ -1,5 +1,33 @@
 {
   "status": "illustrative sensitivity; not device qualification",
+  "reference_rows": [
+    {
+      "carrier": "PQS_SR",
+      "C_c_j_per_k": 3000.0,
+      "ua_pack_to_wall_ratio": 5.0,
+      "ua_w_w_per_k": 0.234811,
+      "ua_p_w_per_k": 1.174055,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 7.009032245050401,
+      "theta_ub_plus_0_5c_sensor_error": 7.509032245050401,
+      "max_minutes_no_openings": 1205.4528158355713,
+      "warm_side_safe": true,
+      "warm_side_safe_with_0_5c_sensor_error": true
+    },
+    {
+      "carrier": "NQ_BAG",
+      "C_c_j_per_k": 2000.0,
+      "ua_pack_to_wall_ratio": 5.0,
+      "ua_w_w_per_k": 0.327261,
+      "ua_p_w_per_k": 1.6363050000000001,
+      "ambient_envelope_c": 27.149998657136656,
+      "theta_ub_c": 6.854411689884492,
+      "theta_ub_plus_0_5c_sensor_error": 7.354411689884492,
+      "max_minutes_no_openings": 288.30564507550685,
+      "warm_side_safe": true,
+      "warm_side_safe_with_0_5c_sensor_error": true
+    }
+  ],
   "rows": [
     {
       "carrier": "PQS_SR",

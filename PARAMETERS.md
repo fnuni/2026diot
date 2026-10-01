@@ -8,8 +8,11 @@ This file is the single parameter account for the study. “Documented” means 
 | PQS short-range cold life | at least 15 h at +43 °C (to +10 °C) | documented | WHO/PQS/E004/VC02.1 (2018) |
 | Compartment heat capacity `C_c` | 3000 J/K (PQS), 2000 J/K (bag) | declared | exposed in `campaigns/sensitivity/thermal.json` |
 | Coolant mass | 1.5 kg (PQS), 0.5 kg (bag) | declared | latent heat of ice 334 kJ/kg |
+| Coolant heat capacities | 2100 J/(kg K) ice; 4186 J/(kg K) water | declared physical constants | phase enthalpy law in aedge/thermal.py |
+| Coolant conductance | UA_p = 5 UA_w, approximately 1.175 / 1.635 W/K | derived calibration | PQS / bag; single target does not identify a physical device |
+| Lower thermal envelope | ambient minimum 20 °C; bound minimum 3.33 °C; initial compartment 4.5 °C | declared / derived | ratio-5 warm-season simulations only |
 | Conductance ratio `UA_p/UA_w` | 5 | declared | ratios 3, 4, 5 and 8 are analysed; ratio 3 is incompatible with the fitted target |
-| Reserve | 10% of latent reserve | declared | explicit safety reserve |
+| Initial reserve | melt fraction 0.02; full 490,980 / 163,660 J; retained reserve 49,098 / 16,366 J | declared | 10% of initial latent reserve, PQS / bag |
 | Non-qualified bag | 3 h cold life at +43 °C | declared stress class | 20% of the PQS minimum |
 | Lid opening | 60 s at 2 W/K per vaccination | declared | separation follows from the simulated 25-min vaccination activity, not from a general routing constraint |
 | Sensor | exact in simulation; 0.5 °C deployment margin analysed | declared sensitivity | a physical device must supply a justified accuracy bound |
@@ -34,6 +37,6 @@ This file is the single parameter account for the study. “Documented” means 
 
 ## Statistical qualifications
 
-The seed is the unit of inference. S1-S5 are the screening phase; C1-C3 are the confirmatory phase with separate seeds and a completed-service endpoint. The phases are not pooled. The Q5 sample size was computationally fixed rather than power-justified, and equivalence fails in the thermal-stress bundle.
+The seed is the unit of inference. S1-S5 are the screening campaign; C1-C3 use distinct seeds and a completed-service endpoint. The campaigns are not pooled. The pooled E3 (machine key Q5) sample size was computationally fixed rather than power-justified; the exploratory bundle analysis fails equivalence in thermal stress. See campaigns/ANALYSIS_PLAN.md.
 
 Sources: [WHO carrier specification](https://extranet.who.int/pqweb/key-resources/documents/pqs-performance-specification-e004vc021-vaccine-carrier-freeze-prevention) and [CDC toolkit](https://www.cdc.gov/vaccines/hcp/downloads/storage-handling-toolkit.pdf).
