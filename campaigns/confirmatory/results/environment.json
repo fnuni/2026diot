@@ -1,0 +1,11 @@
+{
+  "python": "3.10.10 (v3.10.10:aad5f6a891, Feb  7 2023, 08:47:40) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "platform": "macOS-15.7.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "started_utc": "2026-10-01T07:24:49.698560+00:00",
+  "finished_utc": "2026-10-01T07:26:59.777973+00:00",
+  "workers": 4,
+  "runs": 2660,
+  "elapsed_s": 130.09839099999954,
+  "smoke": false
+}

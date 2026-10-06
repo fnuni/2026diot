@@ -1,0 +1,10 @@
+{
+  "python": "3.11.15 (main, Mar  3 2026, 09:26:23) [GCC 13.3.0]",
+  "platform": "Linux-6.18.44-fc-v37-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "stage": "S5",
+  "shard": "0/1",
+  "runs": 360,
+  "wall_s": 238.1,
+  "config_sha256": "056133b710b7165c38d3ff3ed03c50831fe34bd96f80a0050281b8ae365a22af"
+}

@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software or data, please cite this repository.
+type: software
+title: 'What Makes Edge Coordination Resilient? Software and synthetic data'
+repository-code: https://github.com/fnuni/2026diot
+license: MIT
+authors:
+  - family-names: Nucci
+    given-names: Francesco
+    email: francesco.nucci@unisalento.it
+    affiliation: 'Department of Engineering for Innovation, University of Salento'
+  - family-names: Papadia
+    given-names: Gabriele
+    email: gabriele.papadia@unisalento.it
+    affiliation: 'Department of Engineering for Innovation, University of Salento'
+abstract: >-
+  Deterministic multi-agent simulator of home healthcare dispatch with vehicle
+  agents, a fog coordinator and a cloud optimiser, an ownership-token protocol
+  for at-most-once service under partitions and a two-node vaccine-carrier model
+  with a conditional linear thermal bound. Includes a two-phase synthetic study
+  (10,192 screening runs and 2,660 completed-service C1-C3 runs),
+  an outage-only greedy fallback, primary and exploratory analyses, run tables,
+  analyses, raw replay logs for reported seed 9001 and tests.
+  Synthetic data are licensed CC BY 4.0.
+keywords:
+  - classical deliberative agents
+  - edge computing
+  - fog computing
+  - multi-agent systems
+  - home healthcare routing
+  - vaccine cold chain
+  - reproducible simulation
